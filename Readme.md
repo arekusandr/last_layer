@@ -14,6 +14,8 @@ Ultra-fast, Low Latency LLM security solution
 <img alt="Github License" src="https://img.shields.io/github/license/lastlayer/last_layer" />
 </p>
 
+
+
 ## Note
 
 ```
@@ -56,7 +58,25 @@ print(result)
 # Output: RiskModel(query='*', markers={'ExploitClassifier': '0.916992'}, score=2.0, passed=False, risk='high')
 ```
 
+available detectors:
 
+```python
+class Threat(Enum):
+    MixedLangMarker = 0
+    InvisibleUnicodeDetector = 1
+    MarkdownLinkDetector = 2
+    HiddenTextDetector = 3
+    Base64Detector = 4
+    SecretsMarker = 5
+    ProfanityDetector = 6
+    PiiMarker = 7
+    ExploitClassifier = 8
+    ObfuscationDetector = 9
+    CodeFilter = 10
+    GibberishDetector = 11
+    IntellectualPropertyLeak = 12
+
+```
 You can also try it in your browser with Google Colab:
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-LYgF6N5O2ukfoOAXkITCBqbIiutY3H1?usp=sharing)
