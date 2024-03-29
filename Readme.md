@@ -4,6 +4,16 @@ Ultra-fast, Low Latency LLM security solution
 
 `last_layer` is a security library designed to protect LLM applications from prompt injection attacks, jailbreaks and exploits. It acts as a robust filtering layer to scrutinize prompts before they are processed by LLMs, ensuring that only safe and appropriate content is allowed through.
 
+<p>
+<img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/lastlayer/last_layer" />
+<img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/lastlayer/last_layer" />
+<img alt="" src="https://img.shields.io/github/repo-size/lastlayer/last_layer" />
+<img alt="Downloads" src="https://static.pepy.tech/badge/last_layer" />
+<img alt="GitHub Issues" src="https://img.shields.io/github/issues/lastlayer/last_layer" />
+<img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr/lastlayer/last_layer" />
+<img alt="Github License" src="https://img.shields.io/github/license/lastlayer/last_layer" />
+</p>
+
 ## Note
 
 ```
@@ -20,7 +30,7 @@ Please note that last_layer is designed as a safety tool and not a foolproof sol
 
 \*Note: Accuracy based on internal testing and continuous improvement efforts.
 
-## Installation
+## 📦 Installation
 
 To install `last_layer`, simply run:
 
@@ -28,7 +38,7 @@ To install `last_layer`, simply run:
 pip install last_layer
 ```
 
-## Usage
+## ⛓️ Quick Start
 
 Import and use last_layer in your project to scan prompts and responses from LLMs:
 
