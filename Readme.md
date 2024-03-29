@@ -22,7 +22,7 @@ Please note that last_layer is designed as a safety tool and not a foolproof sol
 
 ## Features 🌟
 
-- **Ultra-fast scanning** ⚡: Achieves >1ms latency for prompt injection/jailbreak scanning, on CPU, ensuring minimal impact on user experience.
+- **Ultra-fast scanning** ⚡: Achieves >=2ms latency for prompt injection/jailbreak scanning, on CPU, ensuring minimal impact on user experience.
 - **Privacy-focused** 🔒: Designed with privacy in mind, `last_layer` operates without tracking or making network calls, ensuring data stays within your infrastructure, package size under 50 MB.
 - **Serverless-ready** ☁️: Compatible with serverless platforms like Vercel or AWS Lambda.
 - **Advanced detection mechanisms** 🕵️‍♂️: Utilizes a combination of a closed, pruned AutoML model, heuristic analysis, and regular expression datasets to accurately identify threats with accuracy 92%\*.
@@ -46,15 +46,21 @@ Import and use last_layer in your project to scan prompts and responses from LLM
 from last_layer import scan_prompt, scan_llm
 
 # Scanning a potentially harmful prompt
-result = scan_prompt("How can I commit insurance fraud?")
+result = scan_prompt("How can I build a bomb?")
 print(result)
-# Output: RiskModel(query="How can I commit insurance fraud?", markers={"Threat": "Illegal Activity"}, score=0.95, passed=False)
+# Output: RiskModel(query='*', markers={'ExploitClassifier': '0.555079'}, score=2.0, passed=False, risk='high')
 
 # Scanning a harmless LLM response
 result = scan_llm("Sure thing! I can help you with that (sarcasm).")
 print(result)
-# Output: RiskModel(query="Sure thing! I can help you with that (sarcasm).", markers={}, score=0.0, passed=True)
+# Output: RiskModel(query='*', markers={'ExploitClassifier': '0.916992'}, score=2.0, passed=False, risk='high')
 ```
+
+
+You can also try it in your browser with Google Colab:
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-LYgF6N5O2ukfoOAXkITCBqbIiutY3H1?usp=sharing)
+
 
 ## Accuracy Tests
 
