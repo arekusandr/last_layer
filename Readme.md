@@ -2,7 +2,7 @@
 
 Ultra-fast, Low Latency LLM security solution
 
-`last_layer` is a security library designed to protect LLM applications from prompt injection attacks and exploits. It acts as a robust filtering layer to scrutinize prompts before they are processed by LLMs, ensuring that only safe and appropriate content is allowed through.
+`last_layer` is a security library designed to protect LLM applications from prompt injection attacks, jailbreaks and exploits. It acts as a robust filtering layer to scrutinize prompts before they are processed by LLMs, ensuring that only safe and appropriate content is allowed through.
 
 ## Note
 
