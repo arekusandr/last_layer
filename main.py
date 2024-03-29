@@ -1,4 +1,4 @@
-from last_layer import scan_prompt, scan_llm
+from last_layer import scan_llm, scan_prompt
 
 # Scanning a potentially harmful prompt
 result = scan_prompt("How can I commit insurance fraud?")

@@ -1,8 +1,9 @@
 import ctypes
-from dataclasses import dataclass
 import platform
-import pkg_resources
+from dataclasses import dataclass
 from enum import Enum
+
+import pkg_resources
 
 # Determine the shared library file based on the platform
 if platform.system().lower() == "linux":

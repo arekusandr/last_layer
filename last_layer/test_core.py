@@ -1,6 +1,9 @@
 import unittest
-from last_layer.core import scan_prompt
 
+from hypothesis import given, settings
+from hypothesis import strategies as st
+
+from last_layer.core import scan_prompt
 
 # Test cases: list of tuples (prompt, expected_result)
 test_cases = [
@@ -32,6 +35,39 @@ class TestScanPrompt(unittest.TestCase):
                 self.assertEqual(
                     r.passed, expected, f"Failed at prompt: `{prompt}` {r}"
                 )
+
+
+class TestScanPromptWithHypothesis(unittest.TestCase):
+
+    # Example test to check if the scan_prompt function can handle various strings
+    @settings(max_examples=1000)
+    @given(st.text())
+    def test_scan_prompt_with_random_strings(self, s):
+        result = scan_prompt(s)
+        self.assertIsInstance(
+            result.passed, bool, f"Result should be boolean for input: `{s}`"
+        )
+        assert result.passed in [
+            True,
+            False,
+        ], f"Result should be boolean for input: `{s}`"
+        assert result.score < 10, result
+
+    @settings(max_examples=1000)  # Adjust the number of examples as needed
+    @given(
+        st.lists(
+            st.text(
+                min_size=1, alphabet=st.characters(whitelist_categories=("Ll", "Lu"))
+            ),
+            min_size=1,
+        ).map(" ".join)
+    )
+    def test_scan_prompt_with_random_words(self, s):
+        result = scan_prompt(s)
+        self.assertIsInstance(
+            result.passed, bool, f"Result should be boolean for input: `{s}`"
+        )
+        assert result.score < 10, result
 
 
 if __name__ == "__main__":

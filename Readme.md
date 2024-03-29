@@ -12,10 +12,10 @@ Please note that last_layer is designed as a safety tool and not a foolproof sol
 
 ## Features 🌟
 
-- **Ultra-fast scanning** ⚡: Achieves sub-1ms latency for prompt scanning, capable of processing up to 200k tokens/s on CPU or 5 MB of text/s, ensuring minimal impact on user experience.
+- **Ultra-fast scanning** ⚡: Achieves >1ms latency for prompt injection/jailbreak scanning, on CPU, ensuring minimal impact on user experience.
 - **Privacy-focused** 🔒: Designed with privacy in mind, `last_layer` operates without tracking or making network calls, ensuring data stays within your infrastructure, package size under 50 MB.
 - **Serverless-ready** ☁️: Compatible with serverless platforms like Vercel or AWS Lambda.
-- **Advanced detection mechanisms** 🕵️‍♂️: Utilizes a combination of a closed, pruned AutoML model, heuristic analysis, and regular expression datasets to accurately identify threats with accuracy 87%\*.
+- **Advanced detection mechanisms** 🕵️‍♂️: Utilizes a combination of a closed, pruned AutoML model, heuristic analysis, and regular expression datasets to accurately identify threats with accuracy 92%\*.
 - **Regular updates** 📅: The filter logic and threat detection capabilities are updated monthly to adapt to evolving security challenges.
 
 \*Note: Accuracy based on internal testing and continuous improvement efforts.
@@ -32,7 +32,7 @@ pip install last_layer
 
 Import and use last_layer in your project to scan prompts and responses from LLMs:
 
-```shell
+```python
 from last_layer import scan_prompt, scan_llm
 
 # Scanning a potentially harmful prompt
@@ -90,9 +90,53 @@ Below is an expanded table representing the accuracy of `last_layer` in detectin
 
 This comprehensive table is regularly updated to reflect the ongoing improvements and fine-tuning of `last_layer`'s detection capabilities. We aim to maintain and improve the highest standards of safety
 
+## Approach notes:
+The core of last_layer is deliberately kept closed-source for several reasons. Foremost among these is the concern over reverse engineering. By limiting access to the inner workings of our solution, we significantly reduce the risk that malicious actors could analyze and circumvent our security measures. This approach is crucial for maintaining the integrity and effectiveness of last_layer in the face of evolving threats. Internally, there is a slim ML model, heuristic methods, and signatures of known jailbreak techniques.
+
+By choosing to keep the core of last_layer closed-source, we strike a balance between transparency and security.
+
+
+## Fast API example:
+
+```python
+from fastapi import FastAPI
+from starlette.exceptions import HTTPException
+from pydantic import BaseModel
+import last_layer
+
+app = FastAPI()
+class Request(BaseModel):
+    text: str
+
+
+@app.post("/scan-prompt/")
+async def scan_prompt(chunk: Request) -> last_layer.RiskModel:
+    try:
+        result = last_layer.scan_prompt(chunk.text)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"An error occurred: {str(e)}")
+
+
+@app.post("/scan-llm/")
+async def scan_llm(chunk: Request) -> last_layer.RiskModel:
+    try:
+        result = last_layer.scan_llm(chunk.text)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"An error occurred: {str(e)}")
+
+
+```
 ## 🤝 Schedule a 1-on-1 Session
 
-Book a [1-on-1 Session](<>) with the founders, to discuss any issues, provide feedback, or explore how we can improve last_layer for you.
+Book a [1-on-1 Session](https://cal.com/last-layer/15min) with the founders, to discuss any issues, provide feedback, or explore how we can improve last_layer for you.
+
+## Academic Dataset Requests 🎓
+
+We support academic research with access to our datasets. To request dataset:
+
+    Email: Send to research@tangln.com with "Academic Research Dataset Request" as the subject.
 
 ## Enterprise Version
 

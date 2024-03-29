@@ -1,6 +1,5 @@
 import sys
 
-
 from last_layer import scan_prompt
 
 
