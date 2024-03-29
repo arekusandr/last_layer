@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "last_layer"
+version = "0.1.29"
+description = "Ultra-fast, Low Latency LLM security solution"
+authors = ["Last Layer <gh@tangln.com>"]
+maintainers = ["Last Layer <gh@tangln.com>"]
+repository = "https://github.com/tangln/last_layer"
+license = "MIT"
+readme = "Readme.md"
+keywords = [
+    "llm",
+    "language model",
+    "security",
+    "adversarial attacks",
+    "prompt injection",
+    "prompt leakage",
+    "prompt injection attacks",
+    "prompt leakage prevention",
+    "PII detection",
+    "self-hardening",
+]
+packages = [{ include = "last_layer", from = "." }]
+include = ["last_layer/lib/*.so"]
+
+
+[tool.poetry.scripts] # Include the library.so file explicitly
+last_layer = "last_layer.__main__:entrypoint"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.10.1"
+mypy = "^1.6.1"
+pytest = "^7.4.3"
+pre-commit = "^3.6.2"
+
+[tool.ruff]
+line-length = 120
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
