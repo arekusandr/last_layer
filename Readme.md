@@ -46,21 +46,6 @@ print(result)
 # Output: RiskModel(query="Sure thing! I can help you with that (sarcasm).", markers={}, score=0.0, passed=True)
 ```
 
-## Contribution
-
-Contributions are welcome! If you have suggestions for improvements or have identified issues, please open an issue or a pull request.
-
-## License
-
-Distributed under the MIT License. See LICENSE for more information.
-
-## Acknowledgments
-
-```
-To the open-source community for continuous inspiration and support.
-Everyone who has contributed to refining and enhancing last_layer.
-```
-
 ## Accuracy Tests
 
 Below is an expanded table representing the accuracy of `last_layer` in detecting various types of prompts. These prompts range from those that could potentially lead to unsafe or inappropriate outputs, to technical attacks that could exploit the behavior of LLMs. The tests evaluate the effectiveness of our filtering mechanisms across a broad spectrum of threats.
@@ -137,6 +122,22 @@ Book a [1-on-1 Session](https://cal.com/last-layer/15min) with the founders, to 
 We support academic research with access to our datasets. To request dataset:
 
     Email: Send to research@tangln.com with "Academic Research Dataset Request" as the subject.
+
+
+## Contribution
+
+Contributions are welcome! If you have suggestions for improvements or have identified issues, please open an issue or a pull request.
+
+## License
+
+Distributed under the MIT License. See LICENSE for more information.
+
+## Acknowledgments
+
+```
+To the open-source community for continuous inspiration and support.
+Everyone who has contributed to refining and enhancing last_layer.
+```
 
 ## Enterprise Version
 
