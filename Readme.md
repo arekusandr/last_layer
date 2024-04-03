@@ -1,4 +1,4 @@
-# last_layer
+# Last Layer
 
 Ultra-fast, Low Latency LLM security solution
 
@@ -13,8 +13,6 @@ Ultra-fast, Low Latency LLM security solution
 <img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr/lastlayer/last_layer" />
 <img alt="Github License" src="https://img.shields.io/github/license/lastlayer/last_layer" />
 </p>
-
-
 
 ## Note
 
@@ -31,6 +29,8 @@ Please note that last_layer is designed as a safety tool and not a foolproof sol
 - **Regular updates** 📅: The filter logic and threat detection capabilities are updated monthly to adapt to evolving security challenges.
 
 \*Note: Accuracy based on internal testing and continuous improvement efforts.
+
+**Quick links** - 👀 [Installation](#installation) 🚀 [Google Colab](#Colab) 📚 [Accuracy Tests](#accuracy-tests) 🌟 [Fast API example](#fast-api-example) 💡 [Need help?](#enterprise-version)
 
 ## 📦 Installation
 
@@ -77,10 +77,20 @@ class Threat(Enum):
     IntellectualPropertyLeak = 12
 
 ```
+
+
+```python
+
+risk = RiskModel(query='*', markers={'ExploitClassifier': '1.000000'}, score=2.0, passed=False, risk='high')
+
+r.has(Threat.ExploitClassifier)
+# True
+```
+## Colab
+
 You can also try it in your browser with Google Colab:
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-LYgF6N5O2ukfoOAXkITCBqbIiutY3H1?usp=sharing)
-
 
 ## Accuracy Tests
 
@@ -112,10 +122,10 @@ Below is an expanded table representing the accuracy of `last_layer` in detectin
 This comprehensive table is regularly updated to reflect the ongoing improvements and fine-tuning of `last_layer`'s detection capabilities. We aim to maintain and improve the highest standards of safety
 
 ## Approach notes:
+
 The core of last_layer is deliberately kept closed-source for several reasons. Foremost among these is the concern over reverse engineering. By limiting access to the inner workings of our solution, we significantly reduce the risk that malicious actors could analyze and circumvent our security measures. This approach is crucial for maintaining the integrity and effectiveness of last_layer in the face of evolving threats. Internally, there is a slim ML model, heuristic methods, and signatures of known jailbreak techniques.
 
 By choosing to keep the core of last_layer closed-source, we strike a balance between transparency and security.
-
 
 ## Fast API example:
 
@@ -149,6 +159,7 @@ async def scan_llm(chunk: Request) -> last_layer.RiskModel:
 
 
 ```
+
 ## 🤝 Schedule a 1-on-1 Session
 
 Book a [1-on-1 Session](https://cal.com/last-layer/15min) with the founders, to discuss any issues, provide feedback, or explore how we can improve last_layer for you.
@@ -157,8 +168,9 @@ Book a [1-on-1 Session](https://cal.com/last-layer/15min) with the founders, to 
 
 We support academic research with access to our datasets. To request dataset:
 
-    Email: Send to research@tangln.com with "Academic Research Dataset Request" as the subject.
-
+```
+Email: Send to research@tangln.com with "Academic Research Dataset Request" as the subject.
+```
 
 ## Contribution
 
