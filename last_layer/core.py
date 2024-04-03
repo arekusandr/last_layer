@@ -47,6 +47,9 @@ class RiskModel:
     passed: bool
     risk: str
 
+    def has(self, threat: Threat) -> bool:
+        return threat.name in self.markers
+
 
 def risk_level(score) -> str:
     if not score:
@@ -76,7 +79,7 @@ marker_weights = {
 }
 
 
-def deserialize(prompt: str, serialized_str: str) -> RiskModel:
+def deserialize(prompt: str, serialized_str: str, ignore=list[Threat]) -> RiskModel:
     parts = serialized_str.split("|")
     passed = parts[0] == "1"
     markers = {}
@@ -86,6 +89,12 @@ def deserialize(prompt: str, serialized_str: str) -> RiskModel:
             index, message = part.split(":", 1)
             index = int(index)
             markers[Threat(index).name] = message
+
+    if ignore:
+        for threat in ignore:
+            markers.pop(threat.name, None)
+        passed = not bool(markers)
+
     score = calculate_score(markers)
     return RiskModel(
         query="*",
@@ -101,14 +110,14 @@ heuristic.restype = ctypes.c_void_p
 heuristic.argtypes = [ctypes.c_char_p]
 
 
-def scan_prompt(prompt: str) -> RiskModel:
+def scan_prompt(prompt: str, ignore: list[Threat] = ()) -> RiskModel:
     # this is a pointer to our string
     farewell_output = heuristic(prompt.encode("utf-8"))
     if farewell_output is None:
         raise ValueError("Failed to scan prompt err#1")
     # we dereference the pointer to a byte array
     farewell_bytes = ctypes.string_at(farewell_output).decode("utf-8")
-    return deserialize(prompt, farewell_bytes)
+    return deserialize(prompt, farewell_bytes, ignore=ignore)
 
 
 scan_llm = scan_prompt
