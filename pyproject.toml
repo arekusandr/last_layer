@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "last_layer"
-version = "0.1.31"
+version = "0.1.32"
 description = "Ultra-fast, Low Latency LLM security solution"
 authors = ["Last Layer <gh@tangln.com>"]
 maintainers = ["Last Layer <gh@tangln.com>"]
@@ -34,8 +34,9 @@ python = "^3.9"
 black = "^23.10.1"
 mypy = "^1.6.1"
 pytest = "^7.4.3"
-pre-commit = "^3.6.2"
+pre-commit = "^3.7.0"
 hypothesis = "^6.99.13"
+optuna = "^3.1.0"
 
 [tool.ruff]
 line-length = 120

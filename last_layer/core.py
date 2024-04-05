@@ -50,6 +50,9 @@ class RiskModel:
     def has(self, threat: Threat) -> bool:
         return threat.name in self.markers
 
+    def __bool__(self):
+        return not self.passed
+
 
 def risk_level(score) -> str:
     if not score:

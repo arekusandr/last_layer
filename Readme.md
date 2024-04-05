@@ -83,7 +83,10 @@ class Threat(Enum):
 
 risk = RiskModel(query='*', markers={'ExploitClassifier': '1.000000'}, score=2.0, passed=False, risk='high')
 
-r.has(Threat.ExploitClassifier)
+risk.has(Threat.ExploitClassifier)
+# True
+
+bool(risk)
 # True
 ```
 ## Colab
