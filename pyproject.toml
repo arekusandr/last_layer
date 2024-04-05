@@ -33,7 +33,7 @@ python = "^3.9"
 [tool.poetry.group.dev.dependencies]
 black = ">=23.10.1,<25.0.0"
 mypy = "^1.6.1"
-pytest = "^7.4.3"
+pytest = ">=7.4.3,<9.0.0"
 pre-commit = "^3.7.0"
 hypothesis = "^6.99.13"
 optuna = "^3.1.0"
