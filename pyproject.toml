@@ -31,7 +31,7 @@ python = "^3.9"
 
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.10.1"
+black = ">=23.10.1,<25.0.0"
 mypy = "^1.6.1"
 pytest = "^7.4.3"
 pre-commit = "^3.7.0"
