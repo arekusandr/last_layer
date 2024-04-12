@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "last_layer"
-version = "0.1.32"
+version = "0.1.33"
 description = "Ultra-fast, Low Latency LLM security solution"
 authors = ["Last Layer <gh@tangln.com>"]
 maintainers = ["Last Layer <gh@tangln.com>"]
