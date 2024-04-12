@@ -37,6 +37,8 @@ pytest = ">=7.4.3,<9.0.0"
 pre-commit = "^3.7.0"
 hypothesis = "^6.99.13"
 optuna = "^3.1.0"
+langchain-community = "^0.0.31"
+langchain-contrib = "^0.0.4"
 
 [tool.ruff]
 line-length = 120
