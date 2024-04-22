@@ -737,19 +737,19 @@ llms = ["anthropic (>=0.2.2,<0.3.0)", "cohere (>=3,<4)", "huggingface_hub (>=0,<
 
 [[package]]
 name = "langchain-community"
-version = "0.0.33"
+version = "0.0.34"
 description = "Community contributed LangChain integrations."
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_community-0.0.33-py3-none-any.whl", hash = "sha256:830f0d5f4ff9638b99ca01820c26abfa4b65fa705ef89b5ce55ac9aa3a7d83af"},
-    {file = "langchain_community-0.0.33.tar.gz", hash = "sha256:bb56dbc1ef11ca09f258468e11368781adda9219e144073e30cda69496d342b2"},
+    {file = "langchain_community-0.0.34-py3-none-any.whl", hash = "sha256:bc13b21a44bbfca01bff8b35c10a26d71485b57c1d284f499b577ba6e1a5d84a"},
+    {file = "langchain_community-0.0.34.tar.gz", hash = "sha256:96e9a807d9b4777820df5a970996f6bf3ad5632137bf0f4d863bd832bdeb2b0f"},
 ]
 
 [package.dependencies]
 aiohttp = ">=3.8.3,<4.0.0"
 dataclasses-json = ">=0.5.7,<0.7"
-langchain-core = ">=0.1.43,<0.2.0"
+langchain-core = ">=0.1.45,<0.2.0"
 langsmith = ">=0.1.0,<0.2.0"
 numpy = ">=1,<2"
 PyYAML = ">=5.3"
@@ -780,13 +780,13 @@ simple-term-menu = ">=1.6.1,<2.0.0"
 
 [[package]]
 name = "langchain-core"
-version = "0.1.43"
+version = "0.1.45"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_core-0.1.43-py3-none-any.whl", hash = "sha256:9b601916602c17cb7588e8089302e30872cbd049b583a27debf5566018af6405"},
-    {file = "langchain_core-0.1.43.tar.gz", hash = "sha256:499133fadc28efcf7d24306236521518080bb10fd8bf6f7426de4a2bbf2aebb5"},
+    {file = "langchain_core-0.1.45-py3-none-any.whl", hash = "sha256:91eff20de0bcf5f025e1d8c4582cb597a9c17527965eb03b314486e7c834e7df"},
+    {file = "langchain_core-0.1.45.tar.gz", hash = "sha256:526532c1af279a9e2debe7a4e143ba6e980cf90b5ab2e0991c2230ee04c693e2"},
 ]
 
 [package.dependencies]
@@ -1821,4 +1821,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "6ac7caeae216fc79850c7a8576f326fd4e0ee931ac1bb885978de0e098da83fa"
+content-hash = "21f6b38577fbcd1f93f4203b2905101fe24a24b714d9ce298d5134c6a30a9131"
